@@ -8,9 +8,9 @@ const emitter = new EventEmitter();
 console.log(emitter);
 
 // register a listener
-emitter.on("messageLogged", () => {
-  console.log("Listener Called");
+emitter.on("messageLogged", (arg) => {
+  console.log("Listener Called", { ...arg });
 });
 
 // emit - making a noise | signalling that event has happened
-emitter.emit("messageLogged");
+emitter.emit("messageLogged", { id: 1, url: "http://pm.com" });
