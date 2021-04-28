@@ -1,0 +1,2 @@
+JSHINT - npm install jshint
+jshint helps to trace error efficiently

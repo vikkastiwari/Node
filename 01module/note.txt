@@ -1,0 +1,2 @@
+Node is a run time environment to run javascript code.
+v8 engine + cpp code = Node
