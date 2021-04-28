@@ -1,2 +1,6 @@
-JSHINT - npm install jshint
+1) JSHINT - npm install jshint
 jshint helps to trace error efficiently by scanning the js code
+
+2) class name follows the pascal case convention that is used for naming classes
+
+3) when a function is inside a class it is refered as method
