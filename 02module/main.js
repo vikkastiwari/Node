@@ -1,4 +1,8 @@
 const logger = require("./logger");
 
 console.log(logger);
-logger.logges("message");
+// object reference call
+// logger.logges("message");
+
+// function call
+logger("message");

@@ -4,4 +4,8 @@ const log = (message) => {
   console.log(message);
 };
 
-module.exports.logges = log;
+// it exports the object
+// module.exports.logges = log;
+
+// it exports the function
+module.exports = log;
