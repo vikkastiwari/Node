@@ -1,0 +1,73 @@
+1) to bypass all the questions when we do $npm init
+Type command $npm init --yes
+
+2) "underscore": "^1.13.1" 
+^ - caret
+^1.13.1 - termed as semantic versioning aka SemVer
+1.13.1 - MajorVersion.MinorVersion.PatchRelease
+PatchRelease - It is for bugs, when a bug is fixed it is updated [1.13.2]
+MinorVersion - When a new featur is added [1.14.0]
+MajorVersion - When the api is broken due to change in dependencies then the major version is updated for a stable PatchRelease [2.0.0]
+
+In MinorVersion patch is initialized to zero
+In MajorVersion both MinorVersion and patch is initialized to zero
+further when there is update in version respectively it is updated
+
+If we dont make use of ^ then ^1.13.1 will become 1.x Here we are intereseted in major version
+~ - Tilde
+If we use ~ eg. ~1.13.1 it will become 1.13.x Here we are interested in major and minor version
+
+For exact version we dont use ^ or ~
+
+3) To list all the dependencies with verison that is installed
+execute $npm list
+we can use flag --depth=x to reach to particular level
+for eg. npm list --depth=0
+
+4) To get the all information about package
+execute $npm view packageName
+eg. $npm view mongoose
+It shows the package.json on that particulat package
+
+5) we can check all the dependencies on which our package is dependent on
+$npm view mongoose dependencies
+
+6) Check all the versions realted to that package
+npm view mongoose versions
+
+7) To install a specific version
+npm i mongoose@2.2.2
+
+8) To check the latest version of package we use
+npm outdated
+
+9) run npm update to update them.
+but it only updates the minor version and patch releases 
+
+10) to use npm-check-updates we need to first install it
+$ npm i -g npm-check-updates
+
+To upgrade the package.json with latest version
+$ ncu -u
+ncu - npm-check-updates
+
+Now run npm i to install it
+
+11) To install unit testing which you dont want to go into production
+execute e.g npm i jshint --save-dev
+this will be saved under dev dependencies which will be limited to development 
+"devDependencies": {
+    "jshint": "^2.12.0"
+}
+
+12) Uninstall package
+$ npm un mongoose
+
+13) global packages
+- npm 
+
+To upgrade npm
+$ npm i -g npm
+
+Check latest verison
+$ npm -g outdated

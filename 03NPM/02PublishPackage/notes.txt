@@ -1,0 +1,14 @@
+1) add account in npm
+$ npm adduser
+$ npm login
+Note: verify your email address
+$ npm publish
+
+2) publish new update in package based on major, minor and patch
+for eg. minor version
+$ npm version minor
+$ npm publish
+
+for eg. major version
+$ npm version major
+$ npm publish
