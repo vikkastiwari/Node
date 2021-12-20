@@ -10,7 +10,7 @@ class Logger extends EventEmitter {
 }
 
 // it exports the object
-// module.exports.logges = log;
+module.exports.log = Logger;
 
 // it exports the function
-module.exports = Logger;
+// module.exports = Logger;

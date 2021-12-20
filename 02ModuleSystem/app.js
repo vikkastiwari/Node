@@ -10,6 +10,9 @@
 // setInterval();
 // clearInterval();
 
+console.log(__filename);
+console.log(__dirname);
+
 var message = "";
 // when we try to access message using global it gives undefinied
 //  this is because the var and functions that we define here are not
@@ -25,3 +28,6 @@ console.log(global.message);
 // every var and function that we define init is scoped to that module
 // until we export it and make it public
 console.log(module);
+
+const logger = require("./logger");
+console.log(logger);
