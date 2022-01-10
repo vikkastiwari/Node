@@ -1,3 +1,4 @@
 {
-    "jwtPrivateKey":"screteKey"
+    "jwtPrivateKey":"screteKey",
+    "db":"mongodb://localhost/vidly_test"
 }

@@ -1,3 +1,4 @@
+const validateObjectId = require("../middleware/validateObjectId");
 // as we are using express-async-errors package it makes easier for us to make call without even importing and calling the asyncMiddleware function
 // const asyncMiddleware = require("../middleware/async");
 const { Genre, validate } = require("../models/genre");
@@ -75,7 +76,9 @@ router.delete("/:id", [auth, admin], async (req, res) => {
   res.send(genre);
 });
 
-router.get("/:id", async (req, res) => {
+router.get("/:id", validateObjectId, async (req, res) => {
+  // we have added validateObjectId middleware because while we do integration testing and id is not correct our winston error handler middleware handles it with code of 500 and we expect 404 while assertion
+
   const genre = await Genre.findById(req.params.id);
 
   if (!genre)
