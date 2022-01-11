@@ -2,7 +2,7 @@
 
 ### Config
    #### package.json
-        "scripts": {"test": "jest --watchAll --verbose --runInBand"}
+        "scripts": {"test": "jest --watchAll --verbose --runInBand --coverage"}
 
    #### Set JWT Private Key with Environment Variable then run `node index.js` or `nodemon`
         set vidly_jwtPrivateKey=mySecretKey
