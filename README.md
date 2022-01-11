@@ -2,7 +2,7 @@
 
 ### Config
    #### package.json
-        "scripts": {"test": "jest --watchAll --verbose"}
+        "scripts": {"test": "jest --watchAll --verbose --runinband"}
 
    #### Set JWT Private Key with Environment Variable then run `node index.js` or `nodemon`
         set vidly_jwtPrivateKey=mySecretKey
@@ -16,6 +16,8 @@
 Winston - https://github.com/winstonjs/winston
 <br>
 Jest Mock Functions - https://jestjs.io/docs/mock-functions
+<br>
+Run In Band - https://jestjs.io/docs/cli#--runinband
 
 ### Note
 
