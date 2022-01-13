@@ -20,7 +20,8 @@ Jest Mock Functions - https://jestjs.io/docs/mock-functions
 Run In Band - https://jestjs.io/docs/cli#--runinband
 
 ### Packages
-- Moment `npm i moment`
+- Moment - Deals with date and time
+   `npm i moment`
 
 ### Note
 
