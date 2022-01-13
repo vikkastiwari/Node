@@ -1,15 +1,18 @@
 # Node Fundamentals - RESTFULL API | TESTING | DEPLOYMENT
 
 ### Config
-   #### package.json
+
+#### package.json
+
         "scripts": {"test": "jest --watchAll --verbose --runInBand --coverage"}
 
-   #### Set JWT Private Key with Environment Variable then run `node index.js` or `nodemon`
+#### Set JWT Private Key with Environment Variable then run `node index.js` or `nodemon`
+
         set vidly_jwtPrivateKey=mySecretKey
 
+#### Testing Environment
 
-   #### Testing Environment
-   To get into test environment `set NODE_ENV=test`
+To get into test environment `set NODE_ENV=test`
 
 ### Reference Links
 
@@ -21,7 +24,5 @@ Run In Band - https://jestjs.io/docs/cli#--runinband
 
 ### Note
 
-Module 10 Authentication & Authorization |
-Module 11 Handling & Logging Errors.
-Both done in vidly project
-
+- Module 10 Authentication & Authorization | Module 11 Handling & Logging Errors. Both done in vidly project
+- The way we added validation in returns.js and genres.js using validate middleware repplicate it wherever required
