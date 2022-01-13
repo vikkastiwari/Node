@@ -16,29 +16,58 @@
 10. Return Rental
 */
 
+const Joi = require("joi");
 const express = require("express");
+const moment = require("moment");
 const router = express.Router();
 const { Rental } = require("../models/rental");
+const { Movie } = require("../models/movie");
 const auth = require("../middleware/auth");
+const validate = require("../middleware/validate");
 
 // to check authorization testcase we passed auth middleware
-router.post("/", auth, async (req, res) => {
-  if (!req.body.customerId)
-    return res.status(400).send("customer id is not provided");
+// The way we added auth middleware in same manner we are adding validate middleware
+router.post("/", [auth, validate(validateReturn)], async (req, res) => {
+  // validating without joi
+  //   if (!req.body.customerId)
+  //     return res.status(400).send("customer id is not provided");
+  //   if (!req.body.movieId)
+  //     return res.status(400).send("movie id is not provided");
 
-  if (!req.body.movieId)
-    return res.status(400).send("movie id is not provided");
+  // we moved this in userdefined function with the help of static method
+  //   const rental = await Rental.findOne({
+  //     "customer._id": req.body.customerId,
+  //     "movie._id": req.body.movieId,
+  //   });
 
-  const rental = await Rental.findOne({
-    "customer._id": req.body.customerId,
-    "movie._id": req.body.movieId,
-  });
+  const rental = await Rental.lookup(req.body.customerId, req.body.movieId);
+
   if (!rental) return res.status(404).send("no rental found");
 
   if (rental.dateReturned)
     return res.status(400).send("return already processed");
 
-  return res.status(200).send();
+  rental.return();
+  await rental.save();
+
+  // update and increase the number in stock
+  await Movie.update(
+    { _id: rental.movie._id },
+    {
+      $inc: { numberInStock: 1 },
+    }
+  );
+
+  return res.status(200).send(rental);
 });
+
+function validateReturn(req) {
+  const schema = {
+    customerId: Joi.objectId().required(),
+    movieId: Joi.objectId().required(),
+  };
+
+  return Joi.validate(req, schema);
+}
 
 module.exports = router;

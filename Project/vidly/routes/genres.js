@@ -1,12 +1,14 @@
 const validateObjectId = require("../middleware/validateObjectId");
 // as we are using express-async-errors package it makes easier for us to make call without even importing and calling the asyncMiddleware function
 // const asyncMiddleware = require("../middleware/async");
-const { Genre, validate } = require("../models/genre");
+const { Genre } = require("../models/genre");
 const auth = require("../middleware/auth");
 const admin = require("../middleware/admin");
 const mongoose = require("mongoose");
 const express = require("express");
 const router = express.Router();
+const Joi = require("joi");
+const validate = require("../middleware/validate");
 
 // router.get("/", async (req, res, next) => {
 //   try {
@@ -39,7 +41,7 @@ router.get("/", async (req, res) => {
   res.send(genres);
 });
 
-router.post("/", auth, async (req, res) => {
+router.post("/", [auth, validate(validateGenre)], async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
@@ -86,5 +88,13 @@ router.get("/:id", validateObjectId, async (req, res) => {
 
   res.send(genre);
 });
+
+function validateGenre(req) {
+  const schema = {
+    name: Joi.string().min(5).max(50).required(),
+  };
+
+  return Joi.validate(req, schema);
+}
 
 module.exports = router;
