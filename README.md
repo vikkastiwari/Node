@@ -26,11 +26,24 @@ Run In Band - https://jestjs.io/docs/cli#--runinband
    - Helmet - Protects application from web vulnerabilities `npm i helmet`
    - Compression - It compresses the http response that we sent to client `npm i compression`
 
+### Add file under `vidly > startup > prod.js`
+   #### code
+      const helmet = require("helmet");
+      const compression = require("compression");
+
+      module.exports = function (app) {
+        // we call it as a function in order to get a middleware function
+        app.use(helmet());
+        app.use(compression());
+      };
+
 ### Setup Heroku
    - Install Heroku
    - run `heroku -v` 
    - run `heroku login` 
    - Note - If login fails then `set HTTP_PROXY=http://proxy.server.com:1234`
+
+
 
 ### Note
 
