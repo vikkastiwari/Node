@@ -65,6 +65,30 @@ Note - Add current version of node that your application uses `node -v`
    - to view logs `heroku logs --app your_app_name` in my case app_name = vast-peak-35424
 Note - To view logs in more detail goto dashboard and run bash and run `ls` command and then run `cat log-filename.log` 
 
+### Set variables
+   - app_name = vast-peak-35424 
+   - run `heroku config:set vidly_jwtPrivateKey=1234 --app app_name` to set enivronment variables
+   - run `heroku config:set NODE_ENV=production --app app_name` to set node env
+   - run `heroku config --app app_name` to log all config variables that we have set
+
+### Configure mongodb setup
+   - goto dashboard > resources > add on's > mlab 
+   - but as mlab now comes under mongodb goto mongodb atlas and create free cluster
+   - get the mongodb cluster uri
+
+### configure custom-environment-variables.json
+   #### configuration
+        {
+            "jwtPrivateKey":"vidly_jwtPrivateKey",
+            "db":"vidly_db"
+        }
+   #### set variable `vidly_db`
+        `heroku config:set vidly_db=mongodb atlas connection uri string --app app_name`
+   #### push files to github
+        - git add .
+        - git commit -m"added env var"
+        - git push
+
 ### Note
 
 - Module 10 Authentication & Authorization | Module 11 Handling & Logging Errors. Both done in vidly project
