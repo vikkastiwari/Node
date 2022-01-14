@@ -22,6 +22,47 @@ Jest Mock Functions - https://jestjs.io/docs/mock-functions
 <br>
 Run In Band - https://jestjs.io/docs/cli#--runinband
 
+### Packages
+   - Moment - Deals with date and time `npm i moment`
+
+### Dependencies For Deployment
+   - Helmet - Protects application from web vulnerabilities `npm i helmet`
+   - Compression - It compresses the http response that we sent to client `npm i compression`
+
+### Add file under `vidly > startup > prod.js`
+   #### code
+      const helmet = require("helmet");
+      const compression = require("compression");
+
+      module.exports = function (app) {
+        // we call it as a function in order to get a middleware function
+        app.use(helmet());
+        app.use(compression());
+      };
+
+### Setup Heroku
+   - Install Heroku
+   - run `heroku -v` 
+   - run `heroku login` 
+   - Note - If login fails then `set HTTP_PROXY=http://proxy.server.com:1234`
+
+### Package.json config for deployment
+   #### Add
+      "scripts": {
+       "test": "jest --watchAll --verbose --runInBand --coverage",
+       "start":"node index.js"
+      },
+      "engines":{
+         "node": "v12.19.0"
+      },
+Note - Add current version of node that your application uses `node -v`
+
+### Next
+   - push your code to github
+   - run `heroku create app_name` in cmd prompt (we can pass name of the app in cmd as well - its optional) 
+   - with `git remote -v` we can list remote repository
+   - to deploy run `git push heroku master`
+
 ### Note
 
 - Module 10 Authentication & Authorization | Module 11 Handling & Logging Errors. Both done in vidly project
