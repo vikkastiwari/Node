@@ -62,7 +62,7 @@ Note - Add current version of node that your application uses `node -v`
    - run `heroku create app_name` in cmd prompt (we can pass name of the app in cmd as well - its optional) 
    - with `git remote -v` we can list remote repository
    - to deploy run `git push heroku master` | `git push` 
-   - to view logs `heroku logs`
+   - to view logs `heroku logs --app your_app_name` in my case app_name = vast-peak-35424
 
 ### Note
 
