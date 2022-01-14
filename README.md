@@ -63,6 +63,7 @@ Note - Add current version of node that your application uses `node -v`
    - with `git remote -v` we can list remote repository
    - to deploy run `git push heroku master` | `git push` 
    - to view logs `heroku logs --app your_app_name` in my case app_name = vast-peak-35424
+Note - To view logs in more detail goto dashboard and run bash and run `ls` command and then run `cat log-filename.log` 
 
 ### Note
 
