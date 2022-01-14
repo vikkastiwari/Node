@@ -54,7 +54,9 @@ Run In Band - https://jestjs.io/docs/cli#--runinband
       },
 Note - Add current version of node that your application uses `node -v`
 
-### Push your code to github
+### Next
+   - push your code to github
+   - run `heroku create app_name` in cmd prompt (we can pass name of the app in cmd as well - its optional) 
 
 ### Note
 
