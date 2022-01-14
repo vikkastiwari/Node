@@ -20,8 +20,11 @@ Jest Mock Functions - https://jestjs.io/docs/mock-functions
 Run In Band - https://jestjs.io/docs/cli#--runinband
 
 ### Packages
-- Moment - Deals with date and time
-   `npm i moment`
+   - Moment - Deals with date and time `npm i moment`
+
+### Dependencies For Deployment
+   - Helmet - Protects application from web vulnerabilities `npm i helmet`
+   - Compression - It compresses the http response that we sent to client `npm i compression`
 
 ### Note
 
