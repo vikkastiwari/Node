@@ -83,7 +83,7 @@ Note - To view logs in more detail goto dashboard and run bash and run `ls` comm
             "db":"vidly_db"
         }
    #### set variable `vidly_db`
-        `heroku config:set vidly_db=mongodb atlas connection uri string --app app_name`
+        `heroku config:set vidly_db=mongodb-atlas-connection-uri-string --app app_name`
    #### push files to github
         - git add .
         - git commit -m"added env var"
