@@ -54,6 +54,8 @@ Run In Band - https://jestjs.io/docs/cli#--runinband
       },
 Note - Add current version of node that your application uses `node -v`
 
+### Push your code to github
+
 ### Note
 
 Module 10 Authentication & Authorization |
