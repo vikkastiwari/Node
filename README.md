@@ -43,7 +43,16 @@ Run In Band - https://jestjs.io/docs/cli#--runinband
    - run `heroku login` 
    - Note - If login fails then `set HTTP_PROXY=http://proxy.server.com:1234`
 
-
+### Package.json config for deployment
+   #### Add
+      "scripts": {
+       "test": "jest --watchAll --verbose --runInBand --coverage",
+       "start":"node index.js"
+      },
+      "engines":{
+         "node": "v12.19.0"
+      },
+Note - Add current version of node that your application uses `node -v`
 
 ### Note
 
