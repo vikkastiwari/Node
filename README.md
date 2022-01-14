@@ -57,6 +57,8 @@ Note - Add current version of node that your application uses `node -v`
 ### Next
    - push your code to github
    - run `heroku create app_name` in cmd prompt (we can pass name of the app in cmd as well - its optional) 
+   - with `git remote -v` we can list remote repository
+   - to deploy run `git push heroku master`
 
 ### Note
 
